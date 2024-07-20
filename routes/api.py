@@ -3,6 +3,7 @@ from fastapi.responses import JSONResponse, RedirectResponse
 from core.crud import validate_login
 from hashlib import sha256
 from core.token import Token
+from core.crud import newsletter_collection
 
 api_route = fastapi.APIRouter(prefix="/api")
 
@@ -31,3 +32,17 @@ async def api_logout(request:fastapi.Request):
     redirect = RedirectResponse("/")
     redirect.delete_cookie("token")
     return redirect
+
+@api_route.get("/newsletter", response_class=RedirectResponse)
+async def api_newsletter(request:fastapi.Request, email:str):
+    token = request.cookies.get("token")
+    print(token)
+    if token:
+        data = await newsletter_collection.find_one({"_id":email.strip().lower()})
+        if data:
+            return RedirectResponse("/", status_code=302)
+        else:
+            await newsletter_collection.insert_one({"_id":email.strip().lower()})
+            return RedirectResponse("/newsletter", status_code=302)
+    else:
+        return RedirectResponse("/", status_code=302)

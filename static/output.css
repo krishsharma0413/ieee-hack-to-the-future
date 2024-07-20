@@ -809,6 +809,14 @@ video {
   width: 1.25rem;
 }
 
+.w-\[\] {
+  width: ;
+}
+
+.w-\[300px\] {
+  width: 300px;
+}
+
 .max-w-screen-xl {
   max-width: 1280px;
 }
@@ -847,6 +855,12 @@ video {
 
 .justify-between {
   justify-content: space-between;
+}
+
+.space-x-4 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(1rem * var(--tw-space-x-reverse));
+  margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
 .space-x-3 > :not([hidden]) ~ :not([hidden]) {
@@ -1050,6 +1064,10 @@ video {
   padding-top: 100px;
 }
 
+.pt-6 {
+  padding-top: 1.5rem;
+}
+
 .text-left {
   text-align: left;
 }
@@ -1130,6 +1148,10 @@ video {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
+}
+
+.text-\[12px\] {
+  font-size: 12px;
 }
 
 .font-bold {
@@ -1330,6 +1352,11 @@ npx tailwindcss build -i static/input.css -o static/output.css --watch
   background-color: rgb(145 162 118 / var(--tw-bg-opacity));
 }
 
+.hover\:bg-text:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(238 238 238 / var(--tw-bg-opacity));
+}
+
 .hover\:bg-accent:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(118 135 91 / var(--tw-bg-opacity));
@@ -1378,8 +1405,20 @@ npx tailwindcss build -i static/input.css -o static/output.css --watch
     display: flex;
   }
 
+  .sm\:h-\[300px\] {
+    height: 300px;
+  }
+
+  .sm\:h-\[200px\] {
+    height: 200px;
+  }
+
   .sm\:w-\[150px\] {
     width: 150px;
+  }
+
+  .sm\:w-\[200px\] {
+    width: 200px;
   }
 
   .sm\:w-\[50\%\] {
@@ -1388,6 +1427,10 @@ npx tailwindcss build -i static/input.css -o static/output.css --watch
 
   .sm\:w-full {
     width: 100%;
+  }
+
+  .sm\:w-\[300px\] {
+    width: 300px;
   }
 
   .sm\:min-w-\[300px\] {
