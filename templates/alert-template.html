@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/output.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css" rel="stylesheet" /> -->
+</head>
+
+<body class="bg-background">
+
+
+
+    {%include "./components/navbar.html"%}
+
+
+
+    <div
+        class="row-auto pt-[100px] md:pt-[20px] flex justify-center items-center min-h-screen px-[20px] md:px-[85px] pb-[50px] md:pb-[0px] md:py-[80px]">
+        <div class="w-full justify-center flex text-center items-center my-4">
+            <div class="bg-{{bgcolor}} w-full sm:w-[50%] px-[20px] py-[100px] rounded-lg">
+                <h1 class="text-6xl text-center font-sharetechmono text-text font-bold">
+                    {{emoji}}
+                </h1>
+                
+                <h1 class="text-6xl text-center font-sharetechmono text-text font-bold">
+                    {{title}}
+                </h1>
+                
+                <p class="text-text font-sharetechmono text-xl">
+                    {{msg}}
+                </p>
+                <br>
+                <br>
+
+                <p>
+                    <a href="{{link}}" class="border-text text-background bg-text border-2 px-6 py-1 text-3xl font-sharetechmono font-bold">{{button_msg}}</a>
+                </p>
+
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+    {%include "./components/footer.html"%}  
+
+
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+</body>
+
+</html>

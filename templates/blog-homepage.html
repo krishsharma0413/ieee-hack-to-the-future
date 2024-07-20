@@ -38,22 +38,26 @@
         <div class="w-full flex text-left ">
             
             <div class="w-full">
-                <div id="blog-card" class="block sm:flex place-items-center hover:text-background text-text hover:bg-primary border-2 my-4 border-accent w-full h-fit p-2  rounded-lg">
-                    <div class="flex sm:blockjustify-center place-items-center "><img class="w-full rounded-lg" src="https://placehold.co/200x100"></div>
+                
+                {% for x in blogs %}
+
+                <div onclick="goto(`{{x['_id']}}`)" id="blog-card" class="block sm:flex place-items-center hover:text-background text-text hover:bg-text border-2 my-4 border-accent w-full h-fit p-2  rounded-lg">
+                    <div class="flex sm:blockjustify-center place-items-center"><img class="w-full rounded-lg sm:w-[200px]" src="{{x['img']}}"></div>
                     <div>
                         &nbsp;
                         &nbsp;
                         &nbsp;
                     </div>
                     <div>
-                        <h1 class="text-inherit font-sharetechmono text-3xl font-bold">
-                            Title
+                        <h1 class="text-accent font-sharetechmono text-3xl font-bold">
+                            {{x['title']}}
                         </h1>
                         <p class="text-inherit font-sharetechmono text-lg font-bold">
-                            Blog description and what the blog is about this way you can have some small information about the blog too
+                            {{x['description']}}
                         </p>
                     </div>
                 </div>
+                {% endfor %}
                                 
             </div>
         </div>
@@ -63,6 +67,12 @@
 
    
     {%include "./components/footer.html"%}  
+
+    <script>
+        function goto(url){
+            window.location.href  = "/blog/"+url;
+        }
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
 </body>

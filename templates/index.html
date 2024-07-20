@@ -30,10 +30,10 @@
                 </p>
 
                 <p class="mt-4 flex">
-                    <a class="landing-link">
+                    <a href="/blog" class="landing-link">
                         blogs
                     </a>
-                    <a class="landing-link">
+                    <a href="/marketplace" class="landing-link">
                         marketplace
                     </a>
                 </p>
@@ -70,12 +70,14 @@
             <p class="text-[20px] font-sharetechmono">Subscribe to our newsletter and get weekly updates on the new
                 world of
                 green revolution.</p>
-            <input type="email"
-                class="text-seconday font-sharetechmono mt-8 w-full md:w-[50%] text-lg rounded-lg border-2 border-accent px-2 py-2"><br>
-            <button
-                class="rounded-lg mt-4 bg-primary px-4 py-2 text-xl text-text border-accent border-2 font-bold font-sharetechmono">
-                Subscribe
-            </button>
+            <form action="/api/newsletter" method="get">
+                <input type="email" name="email"
+                    class="text-background font-sharetechmono mt-8 w-full md:w-[50%] text-lg rounded-lg border-2 border-accent px-2 py-2"><br>
+                <button type="submit"
+                    class="rounded-lg mt-4 bg-primary px-4 py-2 text-xl text-text border-accent border-2 font-bold font-sharetechmono">
+                    Subscribe
+                </button>
+            </form>
 
         </div>
     </div>
