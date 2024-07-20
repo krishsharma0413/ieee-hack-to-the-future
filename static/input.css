@@ -3,5 +3,32 @@
 @tailwind utilities;
 
 /* 
-npx tailwindcss build -i static/input.css -o static/output.css -- watch
+npx tailwindcss build -i static/input.css -o static/output.css --watch
 */
+
+/* font */
+@font-face {
+
+    font-family: "Share Tech Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+    src: url(https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap);
+}
+
+.landing-link{
+    @apply px-4 hover:bg-text hover:text-accent bg-accent py-2 m-2 text-text font-sharetechmono font-bold rounded-lg ;
+}
+
+.nav-links{
+    @apply block py-2 px-3 text-text font-sharetechmono hover:bg-accent rounded-lg;
+}
+
+.footer-link{
+    @apply  text-text font-sharetechmono text-xl my-3 hover:text-primary;
+
+}
+
+.footer-svg{
+    @apply  text-accent rounded-full border-4 mx-0 border-primary hover:border-accent p-2 font-sharetechmono text-xl my-3 hover:text-primary;
+
+}
