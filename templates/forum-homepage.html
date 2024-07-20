@@ -18,6 +18,9 @@
 
     {%include "./components/navbar.html"%}
 
+
+
+    
     <!-- main landing -->
     <div
         class="row-auto flex px-[20px] md:px-[85px]">
@@ -25,8 +28,44 @@
             
             <div class="w-full h-fit py-[10px] rounded-lg">
                 <h1 class="text-text font-sharetechmono text-5xl font-bold">
-                    Blogs
+                    📃Forums
                 </h1>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div
+        class="row-auto flex px-[20px] md:px-[85px]">
+        <div class="w-full flex text-left ">
+            
+            <div class="w-full">
+                <div id="blog-card" class="block sm:flex place-items-center text-text border-2 my-4 border-accent w-full h-fit p-2  rounded-lg">
+
+                    <div class="w-full px-3">
+                        <h1 class="text-inherit font-sharetechmono text-3xl font-bold">
+                            Create Post
+                        </h1>
+                        <hr class="w-full mb-2 h-[2px] border-0 bg-accent">
+                        <br>
+                        <label class="text-text font-semibold text-lg font-sharetechmono" for="forumtitle">Title</label>
+                        <input name="forumtitle" type="text" class="w-full px-2 text-background font-sharetechmono rounded-lg">
+                        <br>
+                        <br>
+
+                        <label class="text-text font-semibold text-lg font-sharetechmono" for="forumtitle">Description</label>
+                        <textarea class="w-full text-background font-sharetechmono p-2 rounded-lg">
+
+                        </textarea>
+
+                        <button class="bg-accent mt-2 px-4 py-1 font-sharetechmono text-base font-bold">
+                            SUBMIT 
+                        </button>
+                        
+                    </div>
+                </div>
+                                
             </div>
         </div>
 
@@ -39,19 +78,21 @@
             
             <div class="w-full">
                 <div id="blog-card" class="block sm:flex place-items-center hover:text-background text-text hover:bg-primary border-2 my-4 border-accent w-full h-fit p-2  rounded-lg">
-                    <div class="flex sm:blockjustify-center place-items-center "><img class="w-full rounded-lg" src="https://placehold.co/200x100"></div>
-                    <div>
-                        &nbsp;
-                        &nbsp;
-                        &nbsp;
-                    </div>
-                    <div>
-                        <h1 class="text-inherit font-sharetechmono text-3xl font-bold">
+
+                    <div class="w-full px-3">
+                        <h1 class="text-inherit font-sharetechmono text-4xl font-bold">
                             Title
                         </h1>
+                        <hr class="w-full mb-2 h-[2px] border-0 bg-accent">
+
                         <p class="text-inherit font-sharetechmono text-lg font-bold">
                             Blog description and what the blog is about this way you can have some small information about the blog too
                         </p>
+
+                        <p class="text-inherit text-right font-sharetechmono text-base font-bold">
+                            Replies: 1 
+                        </p>
+                        
                     </div>
                 </div>
                                 
@@ -63,6 +104,7 @@
 
    
     {%include "./components/footer.html"%}  
+
 
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
 </body>

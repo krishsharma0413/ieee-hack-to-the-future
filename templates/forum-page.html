@@ -15,11 +15,13 @@
 <body class="bg-background">
 
 
+
     {%include "./components/navbar.html"%}
+
 
     <!-- main landing -->
     <div
-        class="row-auto flex min-h-screen px-[20px] md:px-[85px]">
+        class="row-auto flex px-[20px] md:px-[85px]">
         <div class="w-full flex text-center my-4">
             <div class=" w-full px-[30px] md:px-[70px] py-[50px] rounded-lg">
                 <h1 class="text-4xl md:text-5xl text-left font-sharetechmono text-text font-bold">
@@ -39,6 +41,68 @@
 
     </div>
 
+    
+    <div
+        class="row-auto flex px-[20px] md:px-[85px]">
+        <div class="w-full flex text-center">
+            <div class=" w-full px-[30px] md:px-[70px] rounded-lg">
+                <h1 class="text-3xl text-left font-sharetechmono text-text font-bold">
+                    Replies
+                </h1>
+                
+                <hr class="bg-text h-[2px] mb-2">
+
+                <div class="text-text font-sharetechmono text-left prose-lg">
+                    <form>
+                        <textarea class="w-full h-[100px] p-2"></textarea>
+                        <button class="text-2xl px-4 bg-accent text-text font-sharetechmono font-semibold">SUBMIT</button>
+                    </form>
+
+                    <br>
+                    <hr class="bg-text h-[2px] my-2">
+
+                <!-- {% for i in replies %} -->
+
+                    <div id="replies" class="my-2">
+                        <div class="w-full flex place-items-center py-2">
+                            <img src="../static/avatar.jpg" class=" w-[50px] h-[50px] border-2 rounded-full aspect-square">
+                            &nbsp;&nbsp;
+                            <div>
+                                <h1 class="reply-name">Krish Sharma</h1>
+                                <p class="reply-msg">Hello there</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="replies" class="my-2">
+                        <div class="w-full flex place-items-center py-2">
+                            <img src="../static/avatar.jpg" class=" w-[50px] h-[50px] border-2 rounded-full aspect-square">
+                            &nbsp;&nbsp;
+                            <div>
+                                <h1 class="reply-name">Krish Sharma</h1>
+                                <p class="reply-msg">Hello there</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="replies" class="my-2">
+                        <div class="w-full flex place-items-center py-2">
+                            <img src="../static/avatar.jpg" class=" w-[50px] h-[50px] border-2 rounded-full aspect-square">
+                            &nbsp;&nbsp;
+                            <div>
+                                <h1 class="reply-name">Krish Sharma</h1>
+                                <p class="reply-msg">Hello there</p>
+                            </div>
+                        </div>
+                    </div>
+
+                <!-- {% endfor %} -->
+                </div>
+            </div>
+        </div>
+
+
+    </div>
    
     {%include "./components/footer.html"%}  
 

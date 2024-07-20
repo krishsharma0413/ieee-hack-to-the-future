@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/output.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet"> -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css" rel="stylesheet" /> -->
+</head>
+
+<body class="bg-background">
+
+    {%include "./components/navbar.html"%}
+
+
+    <!-- main landing -->
+    <div
+        class="row-auto flex px-[20px] md:px-[85px]">
+        <div class="w-full flex text-left mt-4">
+            
+            <div class="w-full justify-between flex h-fit py-[10px] rounded-lg">
+                <h1 class="text-text font-sharetechmono text-5xl font-bold">
+                    👤User Profile
+                </h1>
+
+                <a href="/api/logout" class="text-text flex justify-center place-items-center bg-accent text-xl rounded-lg px-4 py-1 font-sharetechmono">
+                    logout
+                </a>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="w-full flex my-5 justify-center">
+        <div class="w-[90%] flex flex-col">
+            <div class="border-2 border-accent rounded-lg p-5">
+                <div class="text-left flex w-full pt-3">
+                    <div class="relative w-full text-text text-lg">
+                        <div class="flex justify-center  sm:absolute sm:right-2 sm:top-0">
+                            <div>
+                                <img src="{{x['avatar']}}" class="w-[200px] h-[200px] mb-2 aspect-square">
+                                <button class="bg-text font-sharetechmono text-background text-xl font-bold px-2 py-1 rounded-lg w-full mt-2">Change Avatar</button>
+                            </div>
+                        </div>
+
+                        <p class="event-headers">Full Name</p>
+                        <p class="event-content">{{x['fullname']}}</p>
+                        <br>
+                
+                        <p class="event-headers">Email ID</p>
+                        <p class="event-content">{{x['_id']}}</p>
+                        <br>
+                
+                        <p class="event-headers">Password:</p>
+                        <p class="event-content">Forgot your password? <button class="event-button text-base">Change Password!</button></p>
+                        <br>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div
+        class="row-auto flex min-h-screen px-[20px] md:px-[85px]">
+        <div class="w-full flex text-left ">
+            
+            <div class="w-full">
+                <div id="blog-card" class="block sm:flex place-items-center text-text border-2 my-4 border-accent w-full h-fit p-2  rounded-lg">
+
+                    <div class="w-full px-3">
+                        <h1 class="text-inherit font-sharetechmono text-3xl font-bold">
+                            Electricity Consumption
+                        </h1>
+                        <hr class="w-full mb-2 h-[2px] border-0 bg-accent">
+
+                        <p class="text-inherit font-sharetechmono text-base font-bold">
+                            Check your daily electricity consumption here! based on your performance you will be rewareded with crypto coins.
+                        </p>
+
+                        <div>
+                            <canvas id="myChart"></canvas>
+                          </div>
+
+                        
+                    </div>
+                </div>
+                                
+            </div>
+        </div>
+
+
+    </div>
+
+   
+    {%include "./components/footer.html"%}  
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        const ctx = document.getElementById('myChart');
+
+new Chart(ctx, {
+  type: 'line',
+  data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [
+          {
+            label: '# of Votes - Dataset 1',
+            data: [12, 19, 3, 5, 2, 3],
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1
+          },
+          {
+            label: '# of Votes - Dataset 2',
+            data: [7, 14, 5, 8, 3, 6],
+            borderColor: 'white',
+            borderWidth: 1
+          },
+          {
+            label: '# of Votes - Dataset 3',
+            data: [9, 10, 4, 6, 7, 4],
+            borderColor: 'rgba(255, 159, 64, 1)',
+            borderWidth: 1
+          }
+        ]
+      },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  }
+});
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+</body>
+
+</html>

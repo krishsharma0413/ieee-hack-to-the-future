@@ -16,51 +16,8 @@
 
 
 
-    <nav class="bg-background border-b-2 border-accent">
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <img src="../static/logo.svg" class="h-8" alt="Flowbite Logo" />
-                <span class="self-center text-2xl font-semibold font-sharetechmono whitespace-nowrap text-text"><span
-                        class="text-primary">Green</span>Volt</span>
-            </a>
-            <button data-collapse-toggle="navbar-default" type="button"
-                class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                aria-controls="navbar-default" aria-expanded="false">
-                <span class="sr-only">Open main menu</span>
-                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                    viewBox="0 0 17 14">
-                    <path stroke="#91a276" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M1 1h15M1 7h15M1 13h15" />
-                </svg>
-            </button>
-            <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-                <ul
-                    class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-accent rounded-lg bg-background md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
-                    <li>
-                        <a href="#"
-                            class="font-sharetechmono block py-2 px-3 text-text rounded hover:bg-accent hover:text-background"
-                            aria-current="page">About</a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            class="font-sharetechmono block py-2 px-3 text-text rounded hover:bg-accent hover:text-background">Blog</a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            class="font-sharetechmono block py-2 px-3 text-text rounded hover:bg-accent hover:text-background">Marketplace</a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            class="font-sharetechmono block py-2 px-3 text-text rounded hover:bg-accent hover:text-background">Forum</a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            class="font-sharetechmono block py-2 px-3 text-text rounded hover:bg-accent hover:text-background">Profile</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    {%include "./components/navbar.html"%}
+
 
 
     <div
@@ -70,19 +27,21 @@
                 <h1 class="text-6xl text-center font-sharetechmono text-text font-bold">
                     SIGN UP
                 </h1>
-                <input
-                    class="p-4 rounded-lg border-2 border-primary text-seconday font-sharetechmono text-lg w-[80%] mt-5"
-                    placeholder="Create Username"><br>
-                <input
-                    class="p-4 rounded-lg border-2 border-primary text-seconday font-sharetechmono text-lg w-[80%] my-3"
-                    placeholder="Create Password"><br>
-                <input
-                    class="p-4 rounded-lg border-2 border-primary text-seconday font-sharetechmono text-lg w-[80%] mb-3"
-                    placeholder="Password Again"><br>
-                <button
-                    class="text-text rounded-lg border-4 border-primary hover:border-text py-2 px-4 font-bold font-sharetechmono text-3xl my-3">
-                    submit
-                </button>
+                <form action="/api/signup" method="get">
+                    <input name="fullname" type="text"
+                        class="p-4 rounded-lg border-2 border-primary text-seconday font-sharetechmono text-lg w-[80%] mt-5"
+                        placeholder="Full Name"><br>
+                    <input name="email" type="email"
+                        class="p-4 rounded-lg border-2 border-primary text-seconday font-sharetechmono text-lg w-[80%] mt-3"
+                        placeholder="Email address">
+                    <input name="password" type="password"
+                        class="p-4 rounded-lg border-2 border-primary text-seconday font-sharetechmono text-lg w-[80%] my-3"
+                        placeholder="Create Password"><br>
+                    <button type="submit"   
+                        class="text-text rounded-lg border-4 border-primary hover:border-text py-2 px-4 font-bold font-sharetechmono text-3xl my-3">
+                        submit
+                    </button>
+                </form>
 
                 <p class="text-text font-sharetechmono text-xl">
                     Already have an account? <a class="text-background font-semibold" href="/login">Login Now!</a>
@@ -96,46 +55,7 @@
 
     </div>
 
-    <hr class="border-2 w-full border-[#2b2b2b]">
-
-    <!-- footer side -->
-    <footer class="w-full pt-6">
-
-        <div class="text-center">
-            <!-- links -->
-            <div class="flex justify-center items-center space-x-4">
-                <a href="https://instagram.com/krishsharma0413" class="footer-svg">
-                    <img src="/static/instagram-icon.svg">
-                </a>
-                <a href="https://github.com/krishsharma0413" class="footer-svg">
-                    <img src="/static/github-icon.svg">
-                </a>
-                <a href="https://youtube.com" class="footer-svg">
-                    <img src="/static/youtube-icon.svg">
-                </a>
-                <a href="https://facebook.com" class="footer-svg">
-                    <img src="/static/facebook.svg">
-                </a>
-                <a href="mailto:krishsharma0413@gmail.com" class="footer-svg">
-                    <img src="/static/google-gmail.svg">
-                </a>
-            </div>
-
-            <div class="flex justify-center items-center space-x-4">
-                <a href="/about-us" class="footer-link">About</a>
-                <a href="/blog" class="footer-link">Blog</a>
-                <a href="/market" class="footer-link">Market</a>
-                <a href="/contact-us" class="footer-link">Forum</a>
-            </div>
-        </div>
-
-        <!-- <br> -->
-
-        <div class="text-text text-left text-[12px] font-sharetechmono">
-            ©2024 GreenVolt. All rights reserved.
-
-        </div>
-    </footer>
+    {%include "./components/footer.html"%}  
 
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
 </body>

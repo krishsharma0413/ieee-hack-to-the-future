@@ -18,6 +18,8 @@
 
     {%include "./components/navbar.html"%}
 
+
+    
     <!-- main landing -->
     <div
         class="row-auto flex px-[20px] md:px-[85px]">
@@ -25,7 +27,7 @@
             
             <div class="w-full h-fit py-[10px] rounded-lg">
                 <h1 class="text-text font-sharetechmono text-5xl font-bold">
-                    Blogs
+                    👤Leaderboard
                 </h1>
             </div>
         </div>
@@ -33,31 +35,30 @@
 
     </div>
 
-    <div
-        class="row-auto flex min-h-screen px-[20px] md:px-[85px]">
-        <div class="w-full flex text-left ">
-            
-            <div class="w-full">
-                <div id="blog-card" class="block sm:flex place-items-center hover:text-background text-text hover:bg-primary border-2 my-4 border-accent w-full h-fit p-2  rounded-lg">
-                    <div class="flex sm:blockjustify-center place-items-center "><img class="w-full rounded-lg" src="https://placehold.co/200x100"></div>
-                    <div>
-                        &nbsp;
-                        &nbsp;
-                        &nbsp;
-                    </div>
-                    <div>
-                        <h1 class="text-inherit font-sharetechmono text-3xl font-bold">
-                            Title
-                        </h1>
-                        <p class="text-inherit font-sharetechmono text-lg font-bold">
-                            Blog description and what the blog is about this way you can have some small information about the blog too
-                        </p>
+    <div class="w-full flex my-5 justify-center">
+        <div class="w-[90%] flex flex-col">
+            <div class="border-2 border-accent rounded-lg p-5">
+                <div class="text-left flex w-full pt-3">
+                    <div class="relative w-full text-text text-lg">
+                        
+                        <table class="overflow-x-scroll text-center rounded-lg sm:w-full">
+                            <tr>
+                                <th class="border-2 bg-accent">Rank</th>
+                                <th class="border-2 bg-accent">Full Name</th>
+                                <th class="border-2 bg-accent">Average Consumption</th>
+                            </tr>
+                            <tr>
+                                <td class="border-2">1</td>
+                                <td class="border-2">John Doe</td>
+                                <td class="border-2">1000 kWh</td>
+                            </tr>
+                            
+                        </table>
+                        
                     </div>
                 </div>
-                                
             </div>
         </div>
-
 
     </div>
 

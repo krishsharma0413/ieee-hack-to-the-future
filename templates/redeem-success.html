@@ -22,29 +22,32 @@
 
     <div
         class="row-auto pt-[100px] md:pt-[20px] flex justify-center items-center min-h-screen px-[20px] md:px-[85px] pb-[50px] md:pb-[0px] md:py-[80px]">
-        <div class="w-full  justify-center flex text-center items-center my-4">
-            <div class="bg-accent sm:w-[50%] w-full px-[20px] py-[100px] rounded-lg">
+        <div class="w-full justify-center flex text-center items-center my-4">
+            <div class="bg-accent w-full sm:w-[50%] px-[20px] py-[100px] rounded-lg">
                 <h1 class="text-6xl text-center font-sharetechmono text-text font-bold">
-                    LOGIN
+                    ✅
                 </h1>
-                <form action="/api/login" method="get">
-                    <input name="email" type="email"
-                        class="p-4 rounded-lg border-2 border-primary text-seconday font-sharetechmono text-lg w-[80%] mt-5"
-                        placeholder="Email"><br>
-                    <input name="password" type="password"
-                        class="p-4 rounded-lg border-2 border-primary text-seconday font-sharetechmono text-lg w-[80%] my-3"
-                        placeholder="Password"><br>
-                    <button type="submit"
-                        class="text-text rounded-lg border-4 border-primary hover:border-text py-2 px-4 font-bold font-sharetechmono text-3xl my-3">
-                        submit
-                    </button>
-                </form>
-
+                
+                <h1 class="text-6xl text-center font-sharetechmono text-text font-bold">
+                    CONGRATULATIONS!
+                </h1>
+                
                 <p class="text-text font-sharetechmono text-xl">
-                    Don't have an account? <a class="text-background font-semibold" href="/signup">Sign Up!</a>
+                    Your month average for this month was less than your last 6 months average.
                 </p>
+                <br>
+                <br>
+
+                <p>
+                    <button class="border-text text-background bg-text border-2 px-6 py-1 text-3xl font-sharetechmono font-bold">Claim</button>
+                </p>
+
+
+
             </div>
         </div>
+
+
     </div>
 
     {%include "./components/footer.html"%}  
