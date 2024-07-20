@@ -32,3 +32,24 @@ npx tailwindcss build -i static/input.css -o static/output.css --watch
     @apply  text-accent rounded-full border-4 mx-0 border-primary hover:border-accent p-2 font-sharetechmono text-xl my-3 hover:text-primary;
 
 }
+
+.reply-name{
+    @apply  font-bold text-lg text-primary;
+}
+
+.reply-msg{
+    /* no text height */
+    @apply text-text text-base;
+}
+
+.event-button{
+    @apply bg-text font-sharetechmono text-background font-bold px-2 py-1 rounded-lg m-1;
+}
+
+.event-headers{
+    @apply text-white font-sharetechmono font-semibold text-xl;
+}
+
+.event-content{
+    @apply text-text font-sharetechmono text-lg;
+}
