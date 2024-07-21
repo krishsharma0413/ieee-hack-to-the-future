@@ -27,10 +27,17 @@
                     <a href="/blog"
                         class="font-sharetechmono block py-2 px-3 text-text rounded hover:bg-accent hover:text-background">Blog</a>
                 </li>
+                {% if request.url.path.startswith("/marketplace") %}
+                <li>
+                    <a href="/cart"
+                        class="font-sharetechmono block py-2 px-3 text-text rounded hover:bg-accent hover:text-background">Cart</a>
+                </li>
+                {%else%}
                 <li>
                     <a href="/marketplace"
                         class="font-sharetechmono block py-2 px-3 text-text rounded hover:bg-accent hover:text-background">Marketplace</a>
                 </li>
+                {% endif %}
                 <li>
                     <a href="/forum"
                         class="font-sharetechmono block py-2 px-3 text-text rounded hover:bg-accent hover:text-background">Forum</a>

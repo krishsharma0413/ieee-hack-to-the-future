@@ -35,7 +35,7 @@
 
     </div>
 
-    <div class="w-full flex my-5 justify-center">
+    <div class="w-full min-h-screen flex my-5 justify-center">
         <div class="w-[90%] flex flex-col">
             <div class="border-2 border-accent rounded-lg p-5">
                 <div class="text-left flex w-full pt-3">
@@ -47,11 +47,13 @@
                                 <th class="border-2 bg-accent">Full Name</th>
                                 <th class="border-2 bg-accent">Average Consumption</th>
                             </tr>
+                            {% for y in leaderboard %}
                             <tr>
-                                <td class="border-2">1</td>
-                                <td class="border-2">John Doe</td>
-                                <td class="border-2">1000 kWh</td>
+                                <td class="border-2">{{y['position']}}</td>
+                                <td class="border-2">{{y['name']}}</td>
+                                <td class="border-2">{{y['avg']}} kWh</td>
                             </tr>
+                            {% endfor %}
                             
                         </table>
                         
