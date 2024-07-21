@@ -13,6 +13,8 @@ blogs_collection = db["blogs"]
 replies_collection = db["replies"]
 marketplace_collection = db["marketplace"]
 newsletter_collection = db["newsletters"]
+cart_collection = db["cart"]
+consumption_collection = db["consumption"]
 
 async def validate_login(email:str, password:str)-> Union[bool, str]:
     """

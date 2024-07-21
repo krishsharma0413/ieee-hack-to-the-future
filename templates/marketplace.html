@@ -33,46 +33,38 @@
 
                 <hr class="border-2 mt-2 mb-4 w-[80%] border-accent">
 
-                <div class="flex ">
-                    <input
-                        class="text-xl md:text-3xl py-2 px-5 w-[90%] my-3 text-seconday font-sharetechmono border-4 rounded-lg border-accent"
-                        placeholder="🍀Search...">
-                    <button
-                        class="text-text rounded-lg border-4 mx-2 border-primary hover:border-text py-2 px-4 font-bold font-sharetechmono text-lg md:text-3xl my-3">
-                        Search
-                    </button>
-                </div>
-
-                <p class="text-text font-sharetechmono text-xl">
-                    No. of products found: 8778
-                </p>
 
                 <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2  xl:grid-cols-3 my-10">
                     
+                    {% for x in products %}
+
                     <div id="product-card" class="p-5">
-                        <div style="background-image: url('https://placehold.co/300x250');"
+                        <div style="background-image: url({{x['productimage']}});"
                             class="bg-no-repeat bg-cover relative bg-center p-5 m-[10px] w-full flex justify-center items-start sm:min-w-[300px] min-h-[300px] border-4 border-primary rounded-lg">
                             <div class="absolute w-full h-full top-0 left-0"
                                 style="background-color: rgba(0, 0, 0, 0.5);">
                             </div>
 
                             <div class="w-full">
-                                <div class="absolute bottom-0 z-20 px-3 w-[90%] text-center">
+                                <div class="absolute bottom-4 z-20 px-1 w-[90%] text-center">
                                     <h1 class=" text-text text-left w-full text-2xl font-sharetechmono font-bold">
-                                        Product Name
+                                        {{x['productname']}}
                                     </h1>
-                                    <h1 class=" text-text text-left w-full text-xl font-sharetechmono font-bold">
-                                        Product description area
+                                    <h1 class="text-text text-left w-full text-xl font-sharetechmono font-bold">
+                                        Rs. {{x['productprice']}} | {{x['productdescription']}}
                                     </h1>
-                                    <button
+                                    <br>
+                                    <a href="/marketplace/{{x['_id']}}"
                                         class="w-full text-text rounded-lg border-4 border-primary hover:border-primary hover:bg-primary py-2 px-4 font-bold font-sharetechmono text-3xl my-3">
                                         View Product
-                                    </button>
+                                </a>
+                                <br>
                                 </div>
                             </div>
                         </div>
                     </div>
-
+                    
+                    {% endfor %}
                 </div>
 
             </div>

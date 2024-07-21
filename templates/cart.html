@@ -26,9 +26,9 @@
                     🛒Cart
                 </h1>
 
-                <button class="bg-accent text-text font-sharetechmono font-bold px-7 py-1 rounded-lg">
+                <a href="/api/buynow" class="bg-accent flex justify-center place-items-center text-xl text-text font-sharetechmono font-bold px-7 py-1 rounded-lg">
                     BUY NOW
-                </button>
+                </a>
             </div>
         </div>
 
@@ -39,10 +39,12 @@
         <div class="w-full flex text-left ">
 
             <div class="w-full">
-                <div id="blog-card"
+                
+                {% for x in cart %}
+                <div id="blog-card" onclick="window.location.href=`/marketplace/{{x['product']['_id']}}`"
                     class="block sm:flex place-items-center hover:text-background text-text hover:bg-primary border-2 my-4 border-accent w-full h-fit p-2  rounded-lg">
                     <div class="flex sm:blockjustify-center place-items-center "><img
-                            class="sm:w-[150px] w-full rounded-lg" src="https://placehold.co/300x250"></div>
+                            class="sm:w-[150px] w-full rounded-lg" src="{{x['product']['productimage']}}"></div>
                     <div>
                         &nbsp;
                         &nbsp;
@@ -50,13 +52,14 @@
                     </div>
                     <div>
                         <h1 class="text-inherit font-sharetechmono text-3xl font-bold">
-                            Product name
+                            {{x['product']['productname']}}
                         </h1>
                         <p class="text-inherit font-sharetechmono text-lg font-bold">
-                            Some big product description which we will totally read right?
+                            {{x['product']['productdescription']}}
                         </p>
                     </div>
                 </div>
+                {% endfor %}
 
             </div>
         </div>

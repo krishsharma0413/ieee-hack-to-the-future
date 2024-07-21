@@ -19,23 +19,23 @@
     <div
         class="row-auto block pt-[100px] md:pt-[20px] md:flex md:justify-center items-center min-h-screen px-[20px] md:px-[85px] pb-[50px] md:pb-[0px] md:py-[80px]">
         <div class="w-full flex justify-center md:w-1/2  my-4">
-            <img src="https://placehold.co/300x250" alt="landing image" class="w-[80%] rounded-lg">
+            <img src="{{product['productimage']}}" alt="landing image" class="w-[80%] rounded-lg">
         </div>
         <div class="w-full justify-center flex text-center items-center md:w-1/2 my-4">
             <div>
                 <h1 class="w-fit font-sharetechmono text-text font-bold text-[70px]" style="line-height: 64px;">
-                    Product Name
+                    {{product["productname"]}}
                 </h1>
 
                 <p class="font-semibold font-sharetechmono text-text w-fit">
-                    Description of the product that you see almost everywhere now.
+                    Rs. {{product["productprice"]}} | {{product["productdescription"]}}
                 </p>
 
                 <p class="mt-4 flex justify-center place-items-center">
-                    <a class="bg-accent text-lg mr-2 text-text font-sharetechmono font-bold px-4 py-1">
+                    <a href="/api/cart?product_id={{product['_id']}}" class="bg-accent text-lg mr-2 text-text font-sharetechmono font-bold px-4 py-1">
                         ADD TO CART
                     </a>
-                    <a class="bg-accent text-lg text-text font-sharetechmono font-bold px-4 py-1">
+                    <a href="/thank-you" class="bg-accent text-lg text-text font-sharetechmono font-bold px-4 py-1">
                         BUY NOW
                     </a>
                 </p>
