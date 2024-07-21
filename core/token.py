@@ -4,7 +4,7 @@ author: krishsharma0413
 Create Token class for most authentication uses.
 """
 
-from core.crud import users_collection
+from core.crud import users_collection, consumption_collection
 from async_lru import alru_cache
 from hashlib import sha256
 from random import randint
@@ -42,15 +42,19 @@ class Token():
             self.avatar = data["avatar"]
             self.authentication = True
 
-    def change_avatar(self, avatar_url:str)->bool:
+    async def change_avatar(self, avatar_url:str):
         """
         Change avatar for this token.
-        
-        Returns
-        -------
-        - returns `True` if the avatar is successfully changed.
-        - returns `False` if invalid token or an error occured.
         """
+        await users_collection.find_one_and_update({"token": self.token}, {"$set": {"avatar": avatar_url}})
+        return True
+    
+    async def change_password(self, password:str):
+        """
+        Change password for this token.
+        """
+        await users_collection.find_one_and_update({"token": self.token}, {"$set": {"password": sha256(password.encode('utf-8')).hexdigest()}})
+        return True
 
     @staticmethod
     async def add_user(
@@ -86,12 +90,27 @@ class Token():
                 "avatar": "/static/avatar/avatar.jpg"
             })
             
+            await consumption_collection.insert_one({
+                "_id": email.lower(),
+                "coins": 0,
+                "months": [0,0,0,0,0,0],
+                "last_claim": None
+            })
+            
             return token
 
     @staticmethod
     async def get_username(username:str):
         data = await users_collection.find_one({
             "username": username
+        })
+        
+        return data
+    
+    @staticmethod
+    async def get_email(email:str):
+        data = await users_collection.find_one({
+            "_id": email
         })
         
         return data
