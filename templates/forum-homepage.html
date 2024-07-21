@@ -49,19 +49,18 @@
                         </h1>
                         <hr class="w-full mb-2 h-[2px] border-0 bg-accent">
                         <br>
-                        <label class="text-text font-semibold text-lg font-sharetechmono" for="forumtitle">Title</label>
-                        <input name="forumtitle" type="text" class="w-full px-2 text-background font-sharetechmono rounded-lg">
-                        <br>
-                        <br>
-
-                        <label class="text-text font-semibold text-lg font-sharetechmono" for="forumtitle">Description</label>
-                        <textarea class="w-full text-background font-sharetechmono p-2 rounded-lg">
-
-                        </textarea>
-
-                        <button class="bg-accent mt-2 px-4 py-1 font-sharetechmono text-base font-bold">
-                            SUBMIT 
-                        </button>
+                        <form action="/api/create-post" method="get">
+                            <label class="text-text font-semibold text-lg font-sharetechmono" for="forumtitle">Title</label>
+                            <input name="forumtitle" type="text" class="w-full px-2 text-background font-sharetechmono rounded-lg">
+                            <br>
+                            <br>
+                            <label class="text-text font-semibold text-lg font-sharetechmono" for="forumdesc">Description</label>
+                            <textarea name="forumdesc" class="w-full text-background font-sharetechmono p-2 rounded-lg">
+                            </textarea>
+                            <button type="submit" class="bg-accent mt-2 px-4 py-1 font-sharetechmono text-base font-bold">
+                                SUBMIT
+                            </button>
+                        </form>
                         
                     </div>
                 </div>
@@ -77,25 +76,28 @@
         <div class="w-full flex text-left ">
             
             <div class="w-full">
-                <div id="blog-card" class="block sm:flex place-items-center hover:text-background text-text hover:bg-primary border-2 my-4 border-accent w-full h-fit p-2  rounded-lg">
+                
+                {% for x in forums%}
+                <div onclick="goto(`{{x['_id']}}`)" id="forum-card" class="block sm:flex place-items-center hover:text-background text-text hover:bg-primary border-2 my-4 border-accent w-full h-fit p-2  rounded-lg">
 
                     <div class="w-full px-3">
                         <h1 class="text-inherit font-sharetechmono text-4xl font-bold">
-                            Title
+                            {{x['title']}}
                         </h1>
                         <hr class="w-full mb-2 h-[2px] border-0 bg-accent">
 
                         <p class="text-inherit font-sharetechmono text-lg font-bold">
-                            Blog description and what the blog is about this way you can have some small information about the blog too
+                            {{x['description'][:100].strip() + "..."}}
                         </p>
 
                         <p class="text-inherit text-right font-sharetechmono text-base font-bold">
-                            Replies: 1 
+                            Replies: {{x['count']}}
                         </p>
                         
                     </div>
                 </div>
-                                
+                {% endfor %}
+                
             </div>
         </div>
 
@@ -105,6 +107,12 @@
    
     {%include "./components/footer.html"%}  
 
+
+    <script>
+        function goto(id){
+            window.location.href = "/forum/"+id;
+        }
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
 </body>

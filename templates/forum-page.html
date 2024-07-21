@@ -25,15 +25,15 @@
         <div class="w-full flex text-center my-4">
             <div class=" w-full px-[30px] md:px-[70px] py-[50px] rounded-lg">
                 <h1 class="text-4xl md:text-5xl text-left font-sharetechmono text-text font-bold">
-                    Ways to reduce carbon emisson
+                    {{title}}
                 </h1>
-                <h1 class="text-sm text-left mt-2 font-sharetechmono text-text">
-                    Krish | 20.7.24 | 4 min read
-                </h1>
+                <a href="/profile/{{profile}}" class="w-full text-accent block text-sm text-left mt-2 font-sharetechmono">
+                    {{author}}
+                </a>
                 <br>
 
                 <div class="text-text text-sm md:text-base font-sharetechmono text-left">
-                    this is some content that i want to write.this is some content that i want to write.this is some content that i want to write.this is some content that i want to write.this is some content that i want to write.this is some content that i want to write.this is some content that i want to write.this is some content that i want to write.this is some content that i want to write.this is some content that i want to write.this is some content that i want to write.this is some content that i want to write.this is some content that i want to write.this is some content that i want to write.this is some content that i want to write.this is some content that i want to write.this is some content that i want to write.this is some content that i want to write.this is some content that i want to write.this is some content that i want to write.this is some content that i want to write.this is some content that i want to write.this is some content that i want to write.this is some content that i want to write.this is some content that i want to write.this is some content that i want to write.this is some content that i want to write.this is some content that i want to write.this is some content that i want to write.this is some content that i want to write.this is some content that i want to write.this is some content that i want to write.this is some content that i want to write.this is some content that i want to write.this is some content that i want to write.this is some content that i want to write.this is some content that i want to write.this is some content that i want to write.this is some content that i want to write.this is some content that i want to write.this is some content that i want to write.this is some content that i want to write.this is some content that i want to write.this is some content that i want to write.
+                    {{description | safe}}
                 </div>
             </div>
         </div>
@@ -53,50 +53,30 @@
                 <hr class="bg-text h-[2px] mb-2">
 
                 <div class="text-text font-sharetechmono text-left prose-lg">
-                    <form>
-                        <textarea class="w-full h-[100px] p-2"></textarea>
+                    <form action="/api/create-reply">
+                        <input type="hidden" name="forum_id" value="{{forum_id}}">
+                        <textarea name="reply" class="text-background w-full h-[100px] p-2"></textarea>
                         <button class="text-2xl px-4 bg-accent text-text font-sharetechmono font-semibold">SUBMIT</button>
                     </form>
 
                     <br>
                     <hr class="bg-text h-[2px] my-2">
 
-                <!-- {% for i in replies %} -->
+                {% for x in replies %}
 
                     <div id="replies" class="my-2">
                         <div class="w-full flex place-items-center py-2">
-                            <img src="../static/avatar.jpg" class=" w-[50px] h-[50px] border-2 rounded-full aspect-square">
+                            <img src="{{x['avatar']}}" class=" w-[50px] h-[50px] border-2 rounded-full aspect-square">
                             &nbsp;&nbsp;
                             <div>
-                                <h1 class="reply-name">Krish Sharma</h1>
-                                <p class="reply-msg">Hello there</p>
+                                <h1 class="reply-name">{{x['name']}}</h1>
+                                <p class="reply-msg">{{x['reply']}}</p>
                             </div>
                         </div>
                     </div>
 
-                    <div id="replies" class="my-2">
-                        <div class="w-full flex place-items-center py-2">
-                            <img src="../static/avatar.jpg" class=" w-[50px] h-[50px] border-2 rounded-full aspect-square">
-                            &nbsp;&nbsp;
-                            <div>
-                                <h1 class="reply-name">Krish Sharma</h1>
-                                <p class="reply-msg">Hello there</p>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div id="replies" class="my-2">
-                        <div class="w-full flex place-items-center py-2">
-                            <img src="../static/avatar.jpg" class=" w-[50px] h-[50px] border-2 rounded-full aspect-square">
-                            &nbsp;&nbsp;
-                            <div>
-                                <h1 class="reply-name">Krish Sharma</h1>
-                                <p class="reply-msg">Hello there</p>
-                            </div>
-                        </div>
-                    </div>
-
-                <!-- {% endfor %} -->
+                {% endfor %}
                 </div>
             </div>
         </div>
