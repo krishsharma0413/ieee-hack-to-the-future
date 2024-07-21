@@ -44,7 +44,7 @@
                         <div class="flex justify-center  sm:absolute sm:right-2 sm:top-0">
                             <div>
                                 <img src="{{x['avatar']}}" class="w-[200px] h-[200px] mb-2 aspect-square">
-                                <button class="bg-text font-sharetechmono text-background text-xl font-bold px-2 py-1 rounded-lg w-full mt-2">Change Avatar</button>
+                                <a href="/new-avatar" class="bg-text flex justify-center place-items-center font-sharetechmono text-background text-xl font-bold px-2 py-1 rounded-lg w-full mt-2">Change Avatar</a>
                             </div>
                         </div>
 
@@ -57,7 +57,7 @@
                         <br>
                 
                         <p class="event-headers">Password:</p>
-                        <p class="event-content">Forgot your password? <button class="event-button text-base">Change Password!</button></p>
+                        <p class="event-content">Forgot your password? <a href="/new-password" class="event-button text-base">Change Password!</a></p>
                         <br>
                         
                     </div>
@@ -75,14 +75,25 @@
                 <div id="blog-card" class="block sm:flex place-items-center text-text border-2 my-4 border-accent w-full h-fit p-2  rounded-lg">
 
                     <div class="w-full px-3">
-                        <h1 class="text-inherit font-sharetechmono text-3xl font-bold">
-                            Electricity Consumption
-                        </h1>
+                        <div class="flex justify-between place-items-center">
+                            <h1 class="text-inherit font-sharetechmono text-3xl font-bold">
+                                Electricity Consumption
+                            </h1>
+
+                            <h1 class="text-inherit font-sharetechmono text-base font-bold">
+                                Coins: {{coins}}
+                            </h1>
+
+                        </div>
                         <hr class="w-full mb-2 h-[2px] border-0 bg-accent">
 
                         <p class="text-inherit font-sharetechmono text-base font-bold">
                             Check your daily electricity consumption here! based on your performance you will be rewareded with crypto coins.
                         </p>
+                        <a href="/api/claim-coin" class="bg-text flex justify-center place-items-center font-sharetechmono text-background text-xl w-fit font-bold px-2 py-1 rounded-lg mt-2">
+                            Claim Coins
+                        </a>
+
 
                         <div>
                             <canvas id="myChart"></canvas>
@@ -110,24 +121,12 @@
 new Chart(ctx, {
   type: 'line',
   data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: {{months | safe}},
         datasets: [
           {
-            label: '# of Votes - Dataset 1',
-            data: [12, 19, 3, 5, 2, 3],
-            borderColor: 'rgba(75, 192, 192, 1)',
-            borderWidth: 1
-          },
-          {
-            label: '# of Votes - Dataset 2',
-            data: [7, 14, 5, 8, 3, 6],
+            label: 'Electricity Consumption (kWh)',
+            data: {{consumption | safe}},
             borderColor: 'white',
-            borderWidth: 1
-          },
-          {
-            label: '# of Votes - Dataset 3',
-            data: [9, 10, 4, 6, 7, 4],
-            borderColor: 'rgba(255, 159, 64, 1)',
             borderWidth: 1
           }
         ]
